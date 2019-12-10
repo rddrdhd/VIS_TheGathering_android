@@ -7,10 +7,49 @@
     tools:context=".AddDeckActivity">
 
     <TextView
-        android:id="@+id/textView2"
+        android:id="@+id/response"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Add deck layout"
-        tools:layout_editor_absoluteX="161dp"
-        tools:layout_editor_absoluteY="83dp" />
+        android:text="TextView"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <LinearLayout
+        android:id="@+id/add-deck-form"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="#E9DDD1"
+        android:gravity="center|center_horizontal"
+        android:orientation="vertical"
+        android:padding="150px"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <TextView
+            android:id="@+id/textViewAddDeck"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center|center_vertical"
+            android:text="Add new deck"
+            android:textSize="36sp" />
+
+        <EditText
+            android:id="@+id/dTitle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:hint="Title"
+            android:inputType="textPersonName" />
+
+        <Button
+            android:id="@+id/buttonAddDeck"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Add deck" />
+
+    </LinearLayout>
+
 </androidx.constraintlayout.widget.ConstraintLayout>
