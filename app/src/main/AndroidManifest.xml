@@ -13,7 +13,7 @@
 
         android:networkSecurityConfig="@xml/network_security_config"
         android:theme="@style/AppTheme">
-        <activity android:name=".AddAdActivity"></activity>
+        <activity android:name=".AddAdActivity" />
         <activity android:name=".AddTournamentActivity" />
         <activity android:name=".AddDeckActivity" />
         <activity android:name=".AddActivity" />
