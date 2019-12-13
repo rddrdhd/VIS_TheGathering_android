@@ -2,6 +2,8 @@ package com.example.vis_thegathering;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -54,5 +56,25 @@ URI = "http://www.vis-zur0037.php5.cz/indexAPI.php/tournaments/new?" +
                 tw.setText(result);
             }
         });
+    }
+    public void addCalendarEvent(View view){
+
+
+        String d = date.getText().toString().replaceAll("-","");
+        String t = time.getText().toString().replaceAll(":","");
+        String URL = "https://www.google.com/calendar/render?action=TEMPLATE&" +
+                "text=" + title.getText() + "&" +
+                "details=" + note.getText() + "&" +
+                "location="+location.getText()+ "&" +
+                "dates=" + d +
+                "T" + t +
+                "00Z%2F" +d+
+                "T" + (Integer.parseInt(t)+200)+
+                "00Z";
+
+
+        Log.d("url",URL);
+        Intent browserIntent = new Intent(Intent.ACTION_VIEW, Uri.parse(URL));
+        startActivity(browserIntent);
     }
 }
