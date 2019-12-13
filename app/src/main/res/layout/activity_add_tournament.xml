@@ -6,11 +6,101 @@
     android:layout_height="match_parent"
     tools:context=".AddTournamentActivity">
 
+
     <TextView
-        android:id="@+id/textView3"
+        android:id="@+id/tResponse"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Add tournament layout"
-        tools:layout_editor_absoluteX="187dp"
-        tools:layout_editor_absoluteY="93dp" />
+        android:text="TextView"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <LinearLayout
+        android:id="@+id/tAddForm"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="#FFFFFF"
+        android:gravity="center|center_horizontal"
+        android:orientation="vertical"
+        android:padding="150px"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <TextView
+            android:id="@+id/textViewAddTournament"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center|center_vertical"
+            android:text="Add new tournament"
+            android:textSize="36sp" />
+
+        <EditText
+            android:id="@+id/tTitle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:hint="Title"
+            android:inputType="textPersonName" />
+
+
+        <EditText
+            android:id="@+id/tDate"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:hint="Date"
+            android:inputType="date" />
+
+        <EditText
+            android:id="@+id/tTime"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:hint="Time"
+            android:inputType="time" />
+
+        <EditText
+            android:id="@+id/tLocation"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:hint="Location"
+            android:inputType="textPostalAddress" />
+
+        <EditText
+            android:id="@+id/tPrice"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:hint="Price"
+            android:inputType="numberDecimal" />
+
+        <EditText
+            android:id="@+id/tPrize"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:hint="Prize"
+            android:inputType="textPersonName" />
+
+        <EditText
+            android:id="@+id/tNote"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:gravity="start|top"
+            android:hint="Note"
+            android:inputType="textMultiLine" />
+
+        <Button
+            android:id="@+id/buttonAddTournament"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:onClick="addTournament"
+            android:text="Add Tournament" />
+
+    </LinearLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>

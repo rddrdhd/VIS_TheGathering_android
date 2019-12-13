@@ -8,6 +8,10 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.Toast;
 
+import java.io.UnsupportedEncodingException;
+import java.net.URLEncoder;
+import java.nio.charset.StandardCharsets;
+
 public class MainActivity extends AppCompatActivity {
     Button buttAdd;
     Button buttView;
@@ -28,6 +32,14 @@ public class MainActivity extends AppCompatActivity {
     public void add(View view){
         Intent i = new Intent(this, AddActivity.class );
         startActivity(i);
+    }
+
+    public static String encodeValue(String value) {
+        try {
+            return URLEncoder.encode(value, StandardCharsets.UTF_8.toString());
+        } catch (UnsupportedEncodingException ex) {
+            throw new RuntimeException(ex.getCause());
+        }
     }
 
 }

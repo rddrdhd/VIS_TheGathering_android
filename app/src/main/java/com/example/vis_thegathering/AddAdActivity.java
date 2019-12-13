@@ -60,7 +60,7 @@ public class AddAdActivity extends AppCompatActivity {
                 "aCardId="+cardId.getText() +"&" +
                 "aQuantity="+quantity.getText() + "&" +
                 "aPrice="+price.getText()+"&" +
-                "aNote="+note.getText() + "";
+                "aNote="+MainActivity.encodeValue(note.getText().toString()) + "";
         Ion.with(getApplicationContext()).load(URI).asString().setCallback(new FutureCallback<String>() {
             @Override
             public void onCompleted(Exception e, String result) {
