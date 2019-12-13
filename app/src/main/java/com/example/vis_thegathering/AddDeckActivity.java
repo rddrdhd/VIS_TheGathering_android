@@ -5,6 +5,7 @@ import androidx.core.view.ViewCompat;
 
 import android.os.Bundle;
 import android.text.InputType;
+import android.util.Log;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.LinearLayout;
@@ -12,12 +13,18 @@ import android.widget.SeekBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.koushikdutta.async.future.FutureCallback;
+import com.koushikdutta.ion.Ion;
+
+import java.util.ArrayList;
+
 public class AddDeckActivity extends AppCompatActivity {
 
     SeekBar sbCount;
     int cardsCount;
     LinearLayout llCards, llDeckForm;
-    TextView twResult;
+    TextView twResult, twTitle;
+    String URI;
 
 
     @Override
@@ -29,6 +36,7 @@ public class AddDeckActivity extends AppCompatActivity {
         llCards = findViewById(R.id.linearLayoutCards);
         llDeckForm = findViewById(R.id.dAddForm);
         twResult = findViewById(R.id.dResponse);
+        twTitle = findViewById(R.id.dTitle);
 
         sbCount.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
             @Override
@@ -65,7 +73,26 @@ public class AddDeckActivity extends AppCompatActivity {
         });
     }
     public void addDeck(View view){
-        llDeckForm.setVisibility(View.INVISIBLE);
+        //http://www.vis-zur0037.php5.cz/indexAPI.php/decks/new?deckTitle=ahoj&count=2&card1=123&card2=234
+
+        ArrayList cards = new ArrayList<String>();
+
+        EditText card;
+        URI = "http://www.vis-zur0037.php5.cz/indexAPI.php/decks/new" + "?" +
+                "deckTitle=" + twTitle.getText() +"&count=" +Integer.toString(cardsCount);
+
+        for(int i = 0; i<cardsCount; i++){
+            card = findViewById(i);
+            URI+="&card"+(i+1)+"="+card.getText();
+        }
+        Ion.with(getApplicationContext()).load(URI).asString().setCallback(new FutureCallback<String>() {
+            @Override
+            public void onCompleted(Exception e, String result) {
+
+                twResult.setText(result);
+                llDeckForm.setVisibility(View.INVISIBLE);
+            }
+        });
 
     }
 
