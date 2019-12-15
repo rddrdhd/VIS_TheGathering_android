@@ -7,6 +7,7 @@ import android.net.Uri;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.widget.Button;
 import android.widget.EditText;
 import android.widget.LinearLayout;
 import android.widget.TextView;
@@ -20,6 +21,7 @@ public class AddTournamentActivity extends AppCompatActivity {
     TextView tw;
     EditText title, date, time, location, price, prize, type, note;
     String URI;
+    Button calendarButt;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -35,6 +37,8 @@ public class AddTournamentActivity extends AppCompatActivity {
         price=findViewById(R.id.tPrice);
         prize=findViewById(R.id.tPrize);
         note=findViewById(R.id.tNote);
+        calendarButt=findViewById(R.id.addToCalendar);
+        calendarButt.setVisibility(View.GONE);
     }
 
     public void addTournament(View view){
@@ -54,6 +58,7 @@ URI = "http://www.vis-zur0037.php5.cz/indexAPI.php/tournaments/new?" +
             public void onCompleted(Exception e, String result) {
                 ll.setVisibility(View.GONE);
                 tw.setText(result);
+                calendarButt.setVisibility(View.VISIBLE);
             }
         });
     }
